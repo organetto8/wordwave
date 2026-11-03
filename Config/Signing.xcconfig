@@ -1,0 +1,8 @@
+// Code signing. Defaults to ad-hoc signing, which needs no Apple account.
+// Ad-hoc builds may lose macOS permissions (notifications, access to WhatsApp data) on every rebuild.
+// To sign with your own certificate, copy Local.xcconfig.example to Local.xcconfig (git-ignored).
+CODE_SIGN_STYLE = Manual
+CODE_SIGN_IDENTITY = -
+DEVELOPMENT_TEAM =
+
+#include? "Local.xcconfig"

@@ -1,0 +1,410 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%lld unread voice notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld unread voice note"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld unread voice notes"
+                }
+              }
+            }
+          }
+        },
+        "it": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vocale da leggere"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld vocali da leggere"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Automatic (System)": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatica (sistema)"
+          }
+        }
+      }
+    },
+    "Copy Transcript": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia trascrizione"
+          }
+        }
+      }
+    },
+    "Group": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gruppo"
+          }
+        }
+      }
+    },
+    "If macOS asks to access data from other apps, choose Allow. Otherwise add Wordwave under Full Disk Access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se macOS chiede di accedere ai dati di altre app, scegli Consenti. Altrimenti aggiungi Wordwave in Accesso completo al disco."
+          }
+        }
+      }
+    },
+    "Launch at Login": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avvia al login"
+          }
+        }
+      }
+    },
+    "Mark All as Seen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segna tutti come visti"
+          }
+        }
+      }
+    },
+    "Mark as Seen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segna come visto"
+          }
+        }
+      }
+    },
+    "Mark as Unseen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segna come da vedere"
+          }
+        }
+      }
+    },
+    "No new voice notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun nuovo vocale"
+          }
+        }
+      }
+    },
+    "No speech recognized.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun parlato riconosciuto."
+          }
+        }
+      }
+    },
+    "No unread voice notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun vocale da leggere"
+          }
+        }
+      }
+    },
+    "On-device transcription doesn't support %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La trascrizione sul Mac non supporta %@."
+          }
+        }
+      }
+    },
+    "On-device transcription isn't available on this Mac.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La trascrizione sul Mac non è disponibile."
+          }
+        }
+      }
+    },
+    "Open Chat": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri chat"
+          }
+        }
+      }
+    },
+    "Open Full Disk Access Settings": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri Accesso completo al disco"
+          }
+        }
+      }
+    },
+    "Open WhatsApp": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri WhatsApp"
+          }
+        }
+      }
+    },
+    "Open WhatsApp and mark as seen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri WhatsApp e segna come visto"
+          }
+        }
+      }
+    },
+    "Open the chat and mark as seen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri la chat e segna come visto"
+          }
+        }
+      }
+    },
+    "Quit Wordwave": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esci da Wordwave"
+          }
+        }
+      }
+    },
+    "Retry Transcription": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprova trascrizione"
+          }
+        }
+      }
+    },
+    "Seen": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visti"
+          }
+        }
+      }
+    },
+    "Transcribing…": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trascrizione in corso…"
+          }
+        }
+      }
+    },
+    "Transcript not available": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trascrizione non disponibile"
+          }
+        }
+      }
+    },
+    "Transcription Language": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lingua di trascrizione"
+          }
+        }
+      }
+    },
+    "Unknown sender": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mittente sconosciuto"
+          }
+        }
+      }
+    },
+    "Voice Notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vocali"
+          }
+        }
+      }
+    },
+    "Voice message · %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Messaggio vocale · %@"
+          }
+        }
+      }
+    },
+    "Waiting for WhatsApp to download the audio…": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In attesa che WhatsApp scarichi l'audio…"
+          }
+        }
+      }
+    },
+    "WhatsApp Desktop data not found. Install WhatsApp from the Mac App Store and sign in.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dati di WhatsApp Desktop non trovati. Installa WhatsApp dal Mac App Store ed effettua l'accesso."
+          }
+        }
+      }
+    },
+    "WhatsApp didn't download the audio.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WhatsApp non ha scaricato l'audio."
+          }
+        }
+      }
+    },
+    "Wordwave needs access to WhatsApp data": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave deve accedere ai dati di WhatsApp"
+          }
+        }
+      }
+    },
+    "Yesterday %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ieri %@"
+          }
+        }
+      }
+    },
+    "macOS is blocking access to WhatsApp data.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS blocca l'accesso ai dati di WhatsApp."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
