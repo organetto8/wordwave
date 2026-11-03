@@ -68,6 +68,6 @@ enum Diagnostics {
         guard sysctlbyname(name, nil, &size, nil, 0) == 0, size > 0 else { return "?" }
         var buffer = [CChar](repeating: 0, count: size)
         guard sysctlbyname(name, &buffer, &size, nil, 0) == 0 else { return "?" }
-        return String(cString: buffer)
+        return String(decoding: buffer.prefix { $0 != 0 }.map { UInt8(bitPattern: $0) }, as: UTF8.self)
     }
 }
