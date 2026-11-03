@@ -18,3 +18,5 @@ DerivedData/
 .idea/
 .vscode/
 *.zip
+dist/
+*.dmg

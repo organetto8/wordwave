@@ -44,6 +44,7 @@ It opens WhatsApp's database read-only, never modifies WhatsApp's data and never
 brew install xcodegen
 scripts/run.sh            # Release build, installed to ~/Applications and launched
 scripts/run.sh --debug    # Debug build, with the panel also shown in a regular window
+scripts/make-dmg.sh       # Drag-to-install DMG of HEAD in dist/ (or pass a tag, e.g. v0.0.1)
 ```
 
 Builds are signed ad-hoc by default. Ad-hoc builds can lose macOS permissions after a rebuild; to sign with your own certificate, copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and set your team ID.
