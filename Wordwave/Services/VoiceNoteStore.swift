@@ -38,6 +38,7 @@ final class VoiceNoteStore {
     var unseen: [VoiceNote] { notes.filter { !$0.seen }.sorted { $0.receivedAt > $1.receivedAt } }
     var seen: [VoiceNote] { notes.filter(\.seen).sorted { $0.receivedAt > $1.receivedAt } }
     var unseenCount: Int { notes.count(where: { !$0.seen }) }
+    var isTranscribing: Bool { transcriptionTask != nil }
 
     @ObservationIgnored private let database = WhatsAppDatabase()
     @ObservationIgnored private let transcriber = Transcriber()

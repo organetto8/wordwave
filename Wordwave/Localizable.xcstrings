@@ -1,6 +1,8 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@": {},
+    "%@ unread voice notes": {},
     "%lld unread voice notes": {
       "extractionState": "manual",
       "localizations": {
@@ -42,6 +44,17 @@
         }
       }
     },
+    "1. Receive a voice note longer than 2 minutes\n2. Open the panel\n3. …": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1. Ricevi un vocale più lungo di 2 minuti\n2. Apri il pannello\n3. …"
+          }
+        }
+      }
+    },
     "Automatic (System)": {
       "extractionState": "manual",
       "localizations": {
@@ -49,6 +62,61 @@
           "stringUnit": {
             "state": "translated",
             "value": "Automatica (sistema)"
+          }
+        }
+      }
+    },
+    "Bug": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bug"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulla"
+          }
+        }
+      }
+    },
+    "Check for Updates…": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controlla aggiornamenti…"
+          }
+        }
+      }
+    },
+    "Click to choose whether to install it. Betas never install on their own.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clicca per scegliere se installarla. Le beta non si installano mai da sole."
+          }
+        }
+      }
+    },
+    "Copy Diagnostic Info": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia info diagnostiche"
           }
         }
       }
@@ -64,6 +132,61 @@
         }
       }
     },
+    "Couldn't check for updates": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile controllare gli aggiornamenti"
+          }
+        }
+      }
+    },
+    "Diagnostic info": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info diagnostiche"
+          }
+        }
+      }
+    },
+    "Feature Request": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Richiesta di funzione"
+          }
+        }
+      }
+    },
+    "From version %@. Click to see what's new.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dalla versione %@. Clicca per vedere le novità."
+          }
+        }
+      }
+    },
+    "GitHub didn't answer as expected. Try again later.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub non ha risposto come previsto. Riprova più tardi."
+          }
+        }
+      }
+    },
     "Group": {
       "extractionState": "manual",
       "localizations": {
@@ -75,6 +198,17 @@
         }
       }
     },
+    "How it could work": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come potrebbe funzionare"
+          }
+        }
+      }
+    },
     "If macOS asks to access data from other apps, choose Allow. Otherwise add Wordwave under Full Disk Access.": {
       "extractionState": "manual",
       "localizations": {
@@ -82,6 +216,61 @@
           "stringUnit": {
             "state": "translated",
             "value": "Se macOS chiede di accedere ai dati di altre app, scegli Consenti. Altrimenti aggiungi Wordwave in Accesso completo al disco."
+          }
+        }
+      }
+    },
+    "Install Beta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installa beta"
+          }
+        }
+      }
+    },
+    "Install and Relaunch": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installa e riavvia"
+          }
+        }
+      }
+    },
+    "It was built without the release key. Download Wordwave from its GitHub releases instead.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È stata compilata senza la chiave di rilascio. Scarica Wordwave dalle release su GitHub."
+          }
+        }
+      }
+    },
+    "Kind of request": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo di richiesta"
+          }
+        }
+      }
+    },
+    "Later": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Più tardi"
           }
         }
       }
@@ -130,6 +319,17 @@
         }
       }
     },
+    "Menu bar panel or cards": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pannello o card"
+          }
+        }
+      }
+    },
     "No new voice notes": {
       "extractionState": "manual",
       "localizations": {
@@ -159,6 +359,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nessun vocale da leggere"
+          }
+        }
+      }
+    },
+    "Not Now": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non ora"
+          }
+        }
+      }
+    },
+    "Notifications": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifiche"
           }
         }
       }
@@ -196,6 +418,17 @@
         }
       }
     },
+    "Open Download Page": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri la pagina di download"
+          }
+        }
+      }
+    },
     "Open Full Disk Access Settings": {
       "extractionState": "manual",
       "localizations": {
@@ -229,6 +462,17 @@
         }
       }
     },
+    "Open on GitHub": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri su GitHub"
+          }
+        }
+      }
+    },
     "Open the chat and mark as seen": {
       "extractionState": "manual",
       "localizations": {
@@ -240,6 +484,39 @@
         }
       }
     },
+    "Opening chats in WhatsApp": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apertura delle chat in WhatsApp"
+          }
+        }
+      }
+    },
+    "Opens GitHub with the issue filled in. Review it there, in English, and click Create.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apre GitHub con la segnalazione già compilata. Controllala lì, in inglese, e clicca Create."
+          }
+        }
+      }
+    },
+    "Optional. Where it goes and what you'd see.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facoltativo. Dove andrebbe e cosa vedresti."
+          }
+        }
+      }
+    },
     "Quit Wordwave": {
       "extractionState": "manual",
       "localizations": {
@@ -247,6 +524,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Esci da Wordwave"
+          }
+        }
+      }
+    },
+    "Report": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segnalazione"
+          }
+        }
+      }
+    },
+    "Report a Bug…": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segnala un bug…"
+          }
+        }
+      }
+    },
+    "Request a Feature…": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Richiedi una funzione…"
           }
         }
       }
@@ -273,6 +583,149 @@
         }
       }
     },
+    "Show the transcript language on each card": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrare la lingua della trascrizione su ogni card"
+          }
+        }
+      }
+    },
+    "Skip This Beta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta questa beta"
+          }
+        }
+      }
+    },
+    "Something else": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altro"
+          }
+        }
+      }
+    },
+    "Steps to reproduce": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passi per riprodurlo"
+          }
+        }
+      }
+    },
+    "The beta wasn't installed": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La beta non è stata installata"
+          }
+        }
+      }
+    },
+    "The download doesn't contain a valid copy of Wordwave, so it wasn't installed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il download non contiene una copia valida di Wordwave, quindi non è stato installato."
+          }
+        }
+      }
+    },
+    "The download is larger than any Wordwave release, so it was stopped.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il download è più grande di qualsiasi release di Wordwave, quindi è stato interrotto."
+          }
+        }
+      }
+    },
+    "The download isn't signed with Wordwave's release key, so it wasn't installed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il download non è firmato con la chiave di rilascio di Wordwave, quindi non è stato installato."
+          }
+        }
+      }
+    },
+    "The full transcript.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La trascrizione completa."
+          }
+        }
+      }
+    },
+    "The task you're trying to get done, and how you do it today.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa stai cercando di fare, e come lo fai oggi."
+          }
+        }
+      }
+    },
+    "This copy of Wordwave can't update itself": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa copia di Wordwave non può aggiornarsi da sola"
+          }
+        }
+      }
+    },
+    "This version of Wordwave is already installed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa versione di Wordwave è già installata."
+          }
+        }
+      }
+    },
+    "Title": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titolo"
+          }
+        }
+      }
+    },
     "Transcribing…": {
       "extractionState": "manual",
       "localizations": {
@@ -284,6 +737,17 @@
         }
       }
     },
+    "Transcript is empty for long voice notes": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La trascrizione è vuota per i vocali lunghi"
+          }
+        }
+      }
+    },
     "Transcript not available": {
       "extractionState": "manual",
       "localizations": {
@@ -291,6 +755,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Trascrizione non disponibile"
+          }
+        }
+      }
+    },
+    "Transcription": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trascrizione"
           }
         }
       }
@@ -313,6 +788,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mittente sconosciuto"
+          }
+        }
+      }
+    },
+    "Version %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versione %@"
+          }
+        }
+      }
+    },
+    "Versions, settings and counts only: no names, phone numbers or transcripts. It is added to the issue.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo versioni, impostazioni e conteggi: niente nomi, numeri di telefono o trascrizioni. Viene aggiunto alla segnalazione."
           }
         }
       }
@@ -350,6 +847,61 @@
         }
       }
     },
+    "What happened": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa è successo"
+          }
+        }
+      }
+    },
+    "What you expected": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa ti aspettavi"
+          }
+        }
+      }
+    },
+    "What you saw, including the exact text of any error message.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa hai visto, con il testo esatto di eventuali messaggi di errore."
+          }
+        }
+      }
+    },
+    "What you want to do": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa vuoi fare"
+          }
+        }
+      }
+    },
+    "What's New": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Novità"
+          }
+        }
+      }
+    },
     "WhatsApp Desktop data not found. Install WhatsApp from the Mac App Store and sign in.": {
       "extractionState": "manual",
       "localizations": {
@@ -372,6 +924,83 @@
         }
       }
     },
+    "Wordwave %@ beta is available": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È disponibile la beta %@ di Wordwave"
+          }
+        }
+      }
+    },
+    "Wordwave %@ is available": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È disponibile Wordwave %@"
+          }
+        }
+      }
+    },
+    "Wordwave %@ is ready to install": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave %@ è pronta da installare"
+          }
+        }
+      }
+    },
+    "Wordwave can't replace itself where it is. Move it into the Applications folder, or install the new version by hand.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave non può sostituirsi dove si trova. Spostala nella cartella Applicazioni, oppure installa la nuova versione a mano."
+          }
+        }
+      }
+    },
+    "Wordwave couldn't finish the update": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave non è riuscita a completare l'aggiornamento"
+          }
+        }
+      }
+    },
+    "Wordwave couldn't finish the update or put the previous version back. The previous version is in %@: move it into the Applications folder.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave non è riuscita a completare l'aggiornamento né a ripristinare la versione precedente. La versione precedente è in %@: spostala nella cartella Applicazioni."
+          }
+        }
+      }
+    },
+    "Wordwave is up to date": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave è aggiornata"
+          }
+        }
+      }
+    },
     "Wordwave needs access to WhatsApp data": {
       "extractionState": "manual",
       "localizations": {
@@ -383,6 +1012,17 @@
         }
       }
     },
+    "Wordwave updated to %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wordwave aggiornata alla %@"
+          }
+        }
+      }
+    },
     "Yesterday %@": {
       "extractionState": "manual",
       "localizations": {
@@ -390,6 +1030,39 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ieri %@"
+          }
+        }
+      }
+    },
+    "You have version %@. Betas are test versions and can have bugs: Wordwave installs one only if you ask. The download is checked against Wordwave's release key, then Wordwave quits and opens again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai la versione %@. Le beta sono versioni di prova e possono avere bug: Wordwave ne installa una solo se lo chiedi. Il download viene verificato con la chiave di rilascio di Wordwave, poi Wordwave si chiude e si riapre."
+          }
+        }
+      }
+    },
+    "You have version %@. The new version was downloaded from GitHub and its signature verified. Wordwave will quit and open again; a transcription in progress starts over.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai la versione %@. La nuova versione è stata scaricata da GitHub e la sua firma verificata. Wordwave si chiuderà e si riaprirà; una trascrizione in corso ricomincia da capo."
+          }
+        }
+      }
+    },
+    "macOS didn't let Wordwave replace itself. Allow Wordwave in System Settings ▸ Privacy & Security ▸ App Management and try again, or install the new version by hand.": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS non ha permesso a Wordwave di sostituirsi. Consenti Wordwave in Impostazioni di Sistema ▸ Privacy e sicurezza ▸ Gestione app e riprova, oppure installa la nuova versione a mano."
           }
         }
       }

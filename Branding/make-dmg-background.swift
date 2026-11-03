@@ -2,7 +2,7 @@
 // Usage: swift Branding/make-dmg-background.swift   (writes Branding/dmg-background.tiff)
 //
 // Mid-tone brand colours keep Finder's icon labels readable in both light (black text) and dark (white text) mode.
-// Icons sit at (160, 200) and (440, 200), top-left origin: keep scripts/make-dmg.sh in sync.
+// Icons sit at (160, 200) and (440, 200), top-left origin: keep scripts/release.sh in sync.
 import AppKit
 
 let size = NSSize(width: 600, height: 400)

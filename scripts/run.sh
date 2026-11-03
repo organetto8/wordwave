@@ -3,7 +3,7 @@
 #   scripts/run.sh          Release build
 #   scripts/run.sh --debug  Debug build, with the panel also shown in a preview window
 # Any running Wordwave, including the installed one, is quit first: only one instance should watch WhatsApp.
-# To install, use the DMG from scripts/make-dmg.sh.
+# To install, use the DMG from scripts/release.sh.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

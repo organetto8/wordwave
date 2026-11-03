@@ -1,0 +1,40 @@
+name: Feature request
+description: A new feature, or a change to how Wordwave works.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wordwave works entirely on the Mac: requests that need an online service, an account or sending voice notes anywhere are out of scope.
+        Search the [existing requests](https://github.com/organetto8/wordwave/issues?q=is%3Aissue+label%3Aenhancement) first, and add a 👍 to one that matches instead of opening a new one.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of request
+      options:
+        - Transcription
+        - Menu bar panel or cards
+        - Notifications
+        - Opening chats in WhatsApp
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What you want to do
+      description: The task you're trying to get done, and how you do it today.
+      placeholder: I get voice notes in Spanish and Italian and want each one transcribed in its own language.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How it could work in Wordwave
+      description: Optional. Where it goes and what you'd see.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostic info (optional)
+      description: Filled in for you by **⋯ ▸ Request a Feature…** in Wordwave's menu bar panel.
+      render: text

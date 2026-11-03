@@ -1,0 +1,66 @@
+name: Bug report
+description: Something doesn't work, crashes, or transcribes wrongly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. One bug per issue, in English please.
+        Search the [open and closed issues](https://github.com/organetto8/wordwave/issues?q=is%3Aissue) first: it may already be known or fixed.
+        **Never paste a transcript, a contact name or a phone number here**: this page is public.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostic info
+      description: Filled in for you by **⋯ ▸ Report a Bug…** in Wordwave's menu bar panel, or paste **⋯ ▸ Copy Diagnostic Info**. It holds versions, settings and counts only.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, including the exact text of any error message.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Receive a voice note longer than 2 minutes
+        2. Open the panel
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: voice-note
+    attributes:
+      label: Voice note involved
+      description: Length, language, and whether it came from a group or a single chat. Never its content.
+      placeholder: 3 minutes, Italian, single chat
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log (optional)
+      description: |
+        Reproduce the problem, then run this in Terminal and paste the output after removing anything private:
+        `log show --last 5m --info --debug --predicate 'subsystem == "com.ssquillante.Wordwave"'`
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues.
+          required: true
+        - label: I'm using the latest release.
+          required: true
+        - label: This report contains no transcript, contact name or phone number.
+          required: true

@@ -3,14 +3,18 @@ import SwiftUI
 
 struct PanelView: View {
     let store: VoiceNoteStore
+    let updater: Updater
 
     @State private var showSeen: Bool
     @State private var contentHeight: CGFloat = 0
     @State private var launchAtLogin = SMAppService.mainApp.status == .enabled
     @AppStorage(Transcriber.localeDefaultsKey) private var transcriptionLocale = Transcriber.automaticLocale
 
-    init(store: VoiceNoteStore, showSeen: Bool = false) {
+    @Environment(\.openWindow) private var openWindow
+
+    init(store: VoiceNoteStore, updater: Updater, showSeen: Bool = false) {
         self.store = store
+        self.updater = updater
         _showSeen = State(initialValue: showSeen)
     }
 
@@ -54,6 +58,19 @@ struct PanelView: View {
                 Divider()
                 transcriptionLanguagePicker
                 Toggle("Launch at Login", isOn: $launchAtLogin)
+                Button("Check for Updates…", systemImage: "arrow.triangle.2.circlepath") {
+                    Task { await updater.check(userInitiated: true) }
+                }
+                Divider()
+                Button("Report a Bug…", systemImage: "ladybug") { openReport(.bug) }
+                Button("Request a Feature…", systemImage: "lightbulb") { openReport(.feature) }
+                Button("Copy Diagnostic Info", systemImage: "doc.on.clipboard") {
+                    Task {
+                        let report = await Diagnostics.report(store: store, updater: updater)
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(report, forType: .string)
+                    }
+                }
                 Divider()
                 Button("Quit Wordwave") { NSApp.terminate(nil) }
             } label: {
@@ -72,6 +89,11 @@ struct PanelView: View {
                 launchAtLogin = SMAppService.mainApp.status == .enabled
             }
         }
+    }
+
+    private func openReport(_ kind: IssueReport.Kind) {
+        openWindow(id: ReportView.windowID, value: kind)
+        NSApp.activate()
     }
 
     private var transcriptionLanguagePicker: some View {

@@ -16,6 +16,15 @@ A macOS menu bar app that transcribes the WhatsApp voice notes you receive, on y
 - The panel lists unread voice notes on top, each with sender, profile picture, transcript and arrival time.
 - Clicking a card opens the chat in WhatsApp and marks the note as seen. Seen notes move to a collapsed "Seen" section.
 - English UI, with Italian translation. The transcription language follows the system language, or can be picked from the menu.
+- Stays up to date by itself: new stable versions install automatically when Wordwave is idle; betas are only offered, never installed without asking.
+- **⋯ ▸ Report a Bug…** and **⋯ ▸ Request a Feature…** open the GitHub issue already filled in, diagnostic info included, for you to submit.
+
+## Install
+
+1. Download **Wordwave-x.y.z.dmg** from the [latest release](https://github.com/organetto8/wordwave/releases/latest).
+2. Open it and drag **Wordwave** onto **Applications**.
+3. Open Wordwave. It is not notarized, so the first time macOS blocks it: go to System Settings ▸ Privacy & Security and click **Open Anyway**.
+4. When macOS asks to let Wordwave access data from other apps, choose **Allow**.
 
 ## How it works
 
@@ -29,12 +38,14 @@ It opens WhatsApp's database read-only, never modifies WhatsApp's data and never
 
 ## Privacy
 
-- Transcription runs entirely on your Mac. Wordwave itself makes no network requests and sends your data nowhere; the first time, macOS may download Apple's speech model for your language.
+- Transcription runs entirely on your Mac. Voice notes, transcripts, names and numbers never leave it; the first time, macOS may download Apple's speech model for your language.
+- Wordwave's only network requests go to GitHub over HTTPS: the release list every 6 hours and, when there is a newer version, its download. No cookies, no identifiers. Updates are installed only if they carry the release key's signature ([how](docs/RELEASING.md#update-signing-key)).
+- Reporting a bug opens GitHub in your browser; nothing is sent until you submit the issue there. The diagnostic info holds versions, settings and counts only.
 - Wordwave keeps its own list (transcripts and seen state) in `~/Library/Application Support/Wordwave/state.json`. Seen notes are pruned after 7 days.
 
 ## Requirements
 
-- macOS 26 or later, Apple silicon
+- macOS 26 or later (universal build for Apple silicon and Intel)
 - WhatsApp Desktop for Mac, signed in, with voice notes set to download automatically
 - Xcode 26 and [XcodeGen](https://github.com/yonaskolb/XcodeGen) to build
 
@@ -44,14 +55,20 @@ It opens WhatsApp's database read-only, never modifies WhatsApp's data and never
 brew install xcodegen
 scripts/run.sh            # Release build, launched from build/ (the installed app is left alone)
 scripts/run.sh --debug    # Debug build, with the panel also shown in a regular window
-scripts/make-dmg.sh       # Drag-to-install DMG of HEAD in dist/ (or pass a tag, e.g. v0.0.1)
+xcodebuild test -project Wordwave.xcodeproj -scheme Wordwave   # after a first run.sh, which generates the project
 ```
+
+Releases (DMG, signed update ZIP, checksums) are made with `scripts/release.sh` and `scripts/publish.sh`: see [docs/RELEASING.md](docs/RELEASING.md).
 
 Builds are signed ad-hoc by default. Ad-hoc builds can lose macOS permissions after a rebuild; to sign with your own certificate, copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and set your team ID.
 
 On first launch macOS may ask to let Wordwave access data from other apps: choose **Allow**. If it doesn't ask and the panel says access is blocked, add Wordwave under System Settings → Privacy & Security → Full Disk Access.
 
-Launching from an Applications folder turns on **Launch at Login** once; the toggle in the ⋯ menu turns it off.
+Launching from an Applications folder turns on **Launch at Login** once; the toggle in the ⋯ menu turns it off. Only a copy in an Applications folder updates itself.
+
+## Contributing
+
+Questions go to [Discussions](https://github.com/organetto8/wordwave/discussions), bugs and requests to the [issue forms](https://github.com/organetto8/wordwave/issues/new/choose), security problems to a [private report](SECURITY.md). See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Limitations
 

@@ -61,6 +61,18 @@ actor Transcriber {
         return text
     }
 
+    /// For bug reports: the language setting, what it resolves to, and whether its model is on this Mac.
+    static func diagnosticSummary() async -> String {
+        let stored = UserDefaults.standard.string(forKey: localeDefaultsKey) ?? automaticLocale
+        let requested = stored == automaticLocale ? (Locale.preferredLanguages.first ?? "en-US") : stored
+        guard SpeechTranscriber.isAvailable else { return "\(stored), unavailable on this Mac" }
+        guard let locale = await SpeechTranscriber.supportedLocale(equivalentTo: Locale(identifier: requested)) else {
+            return "\(stored) → \(requested), not supported"
+        }
+        let installed = await SpeechTranscriber.installedLocales.contains(locale)
+        return "\(stored) → \(locale.identifier), model \(installed ? "installed" : "not installed yet")"
+    }
+
     private func locale() async throws -> Locale {
         let stored = UserDefaults.standard.string(forKey: Self.localeDefaultsKey) ?? Self.automaticLocale
         let requested = stored == Self.automaticLocale ? (Locale.preferredLanguages.first ?? "en-US") : stored

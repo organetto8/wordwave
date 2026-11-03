@@ -1,10 +1,15 @@
 #!/bin/zsh
-# Build a drag-to-install DMG of Wordwave from a committed revision (universal, ad-hoc signed).
-#   scripts/make-dmg.sh           package HEAD
-#   scripts/make-dmg.sh v0.0.1    package a tag
-# Output: dist/Wordwave-<version>.dmg and its .sha256. The app is built from the revision;
-# the window background comes from the working tree (Branding/dmg-background.tiff).
-# The first run asks for permission to control Finder, which lays out the DMG window.
+# Build the release files of Wordwave from a committed revision (universal, ad-hoc signed):
+#   dist/Wordwave-<version>.dmg       drag-to-install disk image, for people
+#   dist/Wordwave-<version>.zip       the same app, for the in-app updater
+#   dist/Wordwave-<version>.zip.sig   the release key's signature of the zip (scripts/update-signing.swift)
+#   dist/SHA256SUMS.txt
+#
+#   scripts/release.sh           package HEAD
+#   scripts/release.sh v0.1.0    package a tag
+# The app is built from the revision; the DMG window background comes from the working tree
+# (Branding/dmg-background.tiff). The first run asks for permission to control Finder, which lays out the
+# DMG window, and macOS may ask once to let `swift` use the signing key in the keychain.
 set -euo pipefail
 root="$(cd "$(dirname "$0")/.." && pwd)"
 ref="${1:-HEAD}"
@@ -29,6 +34,9 @@ git -C "$root" archive "$ref" | tar -x -C "$work/src"
 )
 app="$work/build/Build/Products/Release/Wordwave.app"
 codesign --verify --deep --strict "$app"
+# Without the release key's public half, this version could never update itself.
+[[ -n "$(plutil -extract WordwaveUpdatePublicKey raw "$app/Contents/Info.plist" 2>/dev/null)" ]] ||
+  { echo "error: the app has no WordwaveUpdatePublicKey: see docs/RELEASING.md" >&2; exit 1; }
 
 stage="$work/stage"
 mkdir -p "$stage/.background"
@@ -68,8 +76,14 @@ sync
 hdiutil detach "$mount" -quiet
 mount=""
 
-mkdir -p "$root/dist"
-out="$root/dist/Wordwave-$version.dmg"
-hdiutil convert -quiet "$work/rw.dmg" -format UDZO -imagekey zlib-level=9 -ov -o "$out"
-(cd "$root/dist" && shasum -a 256 "Wordwave-$version.dmg" > "Wordwave-$version.dmg.sha256")
-echo "Created $out"
+dist="$root/dist"
+rm -rf "$dist"
+mkdir -p "$dist"
+hdiutil convert -quiet "$work/rw.dmg" -format UDZO -imagekey zlib-level=9 -ov -o "$dist/Wordwave-$version.dmg"
+# No resource forks or extended attributes: other unzip tools would turn them into ._ files that break the signature.
+(cd "$(dirname "$app")" && ditto -c -k --norsrc --noextattr --keepParent Wordwave.app "$dist/Wordwave-$version.zip")
+(cd "$root" && swift scripts/update-signing.swift sign "$app" "$dist/Wordwave-$version.zip" &&
+  swift scripts/update-signing.swift verify "$dist/Wordwave-$version.zip")
+(cd "$dist" && shasum -a 256 "Wordwave-$version.dmg" "Wordwave-$version.zip" "Wordwave-$version.zip.sig" > SHA256SUMS.txt)
+echo "Created in $dist:"
+ls -1 "$dist"

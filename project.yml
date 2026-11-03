@@ -17,17 +17,22 @@ targets:
     configFiles:
       Debug: Config/Signing.xcconfig
       Release: Config/Signing.xcconfig
+    scheme:
+      testTargets:
+        - WordwaveTests
     sources:
       - Wordwave
     info:
       path: Wordwave/Info.plist
       properties:
         CFBundleDisplayName: Wordwave
-        CFBundleShortVersionString: "0.0.1"
-        CFBundleVersion: "1"
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "2"
         LSUIElement: true
         LSApplicationCategoryType: public.app-category.productivity
         NSHumanReadableCopyright: ""
+        # Public half of the update signing key: written by `swift scripts/update-signing.swift generate`.
+        WordwaveUpdatePublicKey: "e7KSJDitB7wVk5mCtLf4ecidwMw1bzDk8Df4ASWyBgU="
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ssquillante.Wordwave
@@ -35,3 +40,19 @@ targets:
         ENABLE_APP_SANDBOX: NO
         GENERATE_INFOPLIST_FILE: NO
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  # The updater and the issue links, compiled on their own: no host app, so tests never touch WhatsApp's data.
+  WordwaveTests:
+    type: bundle.unit-test
+    platform: macOS
+    configFiles:
+      Debug: Config/Signing.xcconfig
+      Release: Config/Signing.xcconfig
+    sources:
+      - Tests/WordwaveTests
+      - Wordwave/Updates/UpdateCheck.swift
+      - Wordwave/Updates/UpdateInstaller.swift
+      - Wordwave/Reports/IssueReport.swift
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.ssquillante.WordwaveTests
