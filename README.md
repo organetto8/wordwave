@@ -42,7 +42,7 @@ It opens WhatsApp's database read-only, never modifies WhatsApp's data and never
 
 ```bash
 brew install xcodegen
-scripts/run.sh            # Release build, installed to ~/Applications and launched
+scripts/run.sh            # Release build, launched from build/ (the installed app is left alone)
 scripts/run.sh --debug    # Debug build, with the panel also shown in a regular window
 scripts/make-dmg.sh       # Drag-to-install DMG of HEAD in dist/ (or pass a tag, e.g. v0.0.1)
 ```

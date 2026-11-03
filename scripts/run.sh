@@ -1,7 +1,9 @@
 #!/bin/zsh
-# Build Wordwave and (re)launch it.
-#   scripts/run.sh          Release build, installed to ~/Applications (launch at login works from there)
-#   scripts/run.sh --debug  Debug build from build/, with the panel shown in a preview window
+# Build Wordwave and launch it from build/, without touching the installed copy in /Applications.
+#   scripts/run.sh          Release build
+#   scripts/run.sh --debug  Debug build, with the panel also shown in a preview window
+# Any running Wordwave, including the installed one, is quit first: only one instance should watch WhatsApp.
+# To install, use the DMG from scripts/make-dmg.sh.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -16,12 +18,7 @@ pkill -x Wordwave 2>/dev/null || true
 built="build/Build/Products/$config/Wordwave.app"
 
 if [[ "$config" == Release ]]; then
-  installed="$HOME/Applications/Wordwave.app"
-  mkdir -p "$HOME/Applications"
-  rm -rf "$installed"
-  ditto "$built" "$installed"
-  open "$installed"
-  echo "Installed $installed"
+  open "$built"
 else
   open "$built" --args --preview-window
 fi
