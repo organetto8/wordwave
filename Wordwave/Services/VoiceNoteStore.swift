@@ -39,6 +39,8 @@ final class VoiceNoteStore {
     var seen: [VoiceNote] { notes.filter(\.seen).sorted { $0.receivedAt > $1.receivedAt } }
     var unseenCount: Int { notes.count(where: { !$0.seen }) }
     var isTranscribing: Bool { transcriptionTask != nil }
+    /// Voice notes left out since launch because their chat is muted or archived (for the diagnostic info).
+    @ObservationIgnored private(set) var skippedCount = 0
 
     @ObservationIgnored private let database = WhatsAppDatabase()
     @ObservationIgnored private let transcriber = Transcriber()
@@ -118,6 +120,11 @@ final class VoiceNoteStore {
         NSPasteboard.general.setString(text, forType: .string)
     }
 
+    /// Where WhatsApp's muted and archived state was found, for the diagnostic info.
+    func chatStateSummary() async -> String? {
+        await database.chatStateSummary()
+    }
+
     // MARK: - Polling
 
     private func poll() async {
@@ -125,11 +132,11 @@ final class VoiceNoteStore {
             ? Date.now.addingTimeInterval(-Tuning.firstLaunchLookback)
             : Date.now.addingTimeInterval(-Tuning.maxCatchUp)
         do {
-            let fresh = try await database.fetchVoiceNotes(afterID: lastMessageID, since: since)
+            let batch = try await database.fetchVoiceNotes(afterID: lastMessageID, since: since)
             let waitingIDs = notes.filter { $0.transcription == .waitingForAudio }.map(\.id)
             let downloaded = try await database.downloadedAudioPaths(for: waitingIDs)
             status = .running
-            ingest(fresh, downloaded: downloaded)
+            ingest(batch, downloaded: downloaded)
         } catch WhatsAppDatabaseError.accessDenied {
             status = .needsAccess
             await database.reset()
@@ -140,7 +147,7 @@ final class VoiceNoteStore {
         }
     }
 
-    private func ingest(_ fresh: [VoiceNote], downloaded: [Int64: String]) {
+    private func ingest(_ batch: WhatsAppDatabase.Batch, downloaded: [Int64: String]) {
         var changed = false
 
         for (id, path) in downloaded {
@@ -157,14 +164,19 @@ final class VoiceNoteStore {
         }
 
         let known = Set(notes.map(\.id))
-        let added = fresh.filter { !known.contains($0.id) }
-        if let maxID = fresh.map(\.id).max(), maxID > lastMessageID {
+        let added = batch.notes.filter { !known.contains($0.id) }
+        // Skipped notes count too: unmuting a chat later doesn't bring back the notes it got while muted.
+        if let maxID = batch.lastID, maxID > lastMessageID {
             lastMessageID = maxID
             changed = true
         }
         if !added.isEmpty {
             notes.append(contentsOf: added)
             logger.info("ingested \(added.count) voice notes")
+        }
+        if batch.skipped > 0 {
+            skippedCount += batch.skipped
+            logger.info("skipped \(batch.skipped) voice notes from muted or archived chats")
         }
         if isFirstLaunch {
             isFirstLaunch = false
