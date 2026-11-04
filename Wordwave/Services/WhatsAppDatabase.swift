@@ -31,20 +31,35 @@ actor WhatsAppDatabase {
     /// `ZWACHATSESSION.ZSESSIONTYPE`: 0 = 1:1 chat, 1 = group, 4 = community group.
     private static let groupSessionTypes: Set<Int64> = [1, 4]
 
+    /// Incoming voice notes read in one poll.
+    struct Batch: Sendable {
+        /// Voice notes to transcribe, oldest first.
+        var notes: [VoiceNote] = []
+        /// Voice notes left out because their chat is muted or archived.
+        var skipped = 0
+        /// Highest message ID read, skipped notes included, so a skipped note is never picked up later.
+        var lastID: Int64?
+    }
+
     private var chatDB: SQLiteConnection?
     private var contactsDB: SQLiteConnection?
     private var lidDB: SQLiteConnection?
+    private var chatState: ChatStateColumns?
 
-    /// Incoming voice notes with `Z_PK > afterID` received after `since`, oldest first.
-    func fetchVoiceNotes(afterID: Int64, since: Date) throws -> [VoiceNote] {
+    /// Incoming voice notes with `Z_PK > afterID` received after `since`, oldest first. Notes from a chat that is
+    /// muted or archived right now are counted as skipped instead.
+    func fetchVoiceNotes(afterID: Int64, since: Date) throws -> Batch {
         let db = try chatConnection()
+        let chatState = try chatStateColumns(db)
         let avatars = AvatarIndex()
-        var notes: [VoiceNote] = []
+        let now = Date.now
+        var batch = Batch()
 
         let sql = """
             SELECT m.Z_PK, m.ZMESSAGEDATE, i.ZMOVIEDURATION, i.ZMEDIALOCALPATH,
                    c.ZCONTACTJID, c.ZPARTNERNAME, c.ZSESSIONTYPE,
-                   g.ZMEMBERJID, COALESCE(g.ZCONTACTNAME, g.ZFIRSTNAME)
+                   g.ZMEMBERJID, COALESCE(g.ZCONTACTNAME, g.ZFIRSTNAME),
+                   \(chatState.selectSQL)
             FROM ZWAMESSAGE m
             JOIN ZWAMEDIAITEM i ON i.Z_PK = m.ZMEDIAITEM
             JOIN ZWACHATSESSION c ON c.Z_PK = m.ZCHATSESSION
@@ -56,6 +71,11 @@ actor WhatsAppDatabase {
             """
         try db.query(sql, [.int(MessageType.audio), .int(afterID), .double(since.timeIntervalSinceReferenceDate)]) { row in
             guard let id = row.int(0), let date = row.double(1), let chatJID = row.text(4) else { return }
+            batch.lastID = max(batch.lastID ?? id, id)
+            if ChatStateColumns.isMutedOrArchived(row, from: 9, at: now) {
+                batch.skipped += 1
+                return
+            }
             let isGroup = Self.groupSessionTypes.contains(row.int(6) ?? 0)
             let chatName = row.text(5)?.nilIfBlank
 
@@ -66,7 +86,7 @@ actor WhatsAppDatabase {
                 ?? phone.map { "+\($0)" }
                 ?? String(localized: "Unknown sender")
 
-            notes.append(VoiceNote(
+            batch.notes.append(VoiceNote(
                 id: id,
                 receivedAt: Date(timeIntervalSinceReferenceDate: date),
                 durationSeconds: Int(row.int(2) ?? 0),
@@ -81,10 +101,15 @@ actor WhatsAppDatabase {
             ))
         }
 
-        for index in notes.indices where notes[index].audioPath == nil {
-            notes[index].transcription = .waitingForAudio
+        for index in batch.notes.indices where batch.notes[index].audioPath == nil {
+            batch.notes[index].transcription = .waitingForAudio
         }
-        return notes
+        return batch
+    }
+
+    /// Where muted and archived state was found, for the diagnostic info; nil until WhatsApp's data was read.
+    func chatStateSummary() -> String? {
+        chatState?.summary
     }
 
     /// Audio file paths for messages whose audio has been downloaded in the meantime.
@@ -119,11 +144,20 @@ actor WhatsAppDatabase {
         return connection
     }
 
+    /// Looked up once per connection: a WhatsApp update that changes the layout fails a query, which reconnects.
+    private func chatStateColumns(_ db: SQLiteConnection) throws -> ChatStateColumns {
+        if let chatState { return chatState }
+        let columns = try ChatStateColumns(reading: db)
+        chatState = columns
+        return columns
+    }
+
     /// Drops cached connections so the next call reopens them (e.g. after an I/O error).
     func reset() {
         chatDB = nil
         contactsDB = nil
         lidDB = nil
+        chatState = nil
     }
 
     private func optionalConnection(_ url: URL, cache: inout SQLiteConnection?) -> SQLiteConnection? {

@@ -13,6 +13,7 @@ A macOS menu bar app that transcribes the WhatsApp voice notes you receive, on y
 
 - A waveform icon in the menu bar shows how many voice notes you haven't read yet.
 - Each voice note is transcribed on-device. Voice notes that arrive while Wordwave is running also get a system notification with the transcript.
+- Voice notes from chats and groups you muted or archived in WhatsApp are skipped: no transcript, no notification, no card.
 - The panel lists unread voice notes on top, each with sender, profile picture, transcript and arrival time.
 - Clicking a card opens the chat in WhatsApp and marks the note as seen. Seen notes move to a collapsed "Seen" section.
 - English UI, with Italian translation. The transcription language follows the system language, or can be picked from the menu.
@@ -31,6 +32,7 @@ A macOS menu bar app that transcribes the WhatsApp voice notes you receive, on y
 Wordwave reads the local database of **WhatsApp Desktop for Mac** (the Mac App Store app), read-only:
 
 - new voice notes come from `ChatStorage.sqlite` in WhatsApp's group container, polled every 3 seconds;
+- whether a chat is muted or archived comes from the same database, checked when the voice note is picked up: a note received while the chat was muted stays skipped after you unmute it;
 - the `.opus` audio WhatsApp already downloaded is transcribed with Apple's `SpeechAnalyzer` / `SpeechTranscriber` (macOS 26);
 - names and profile pictures come from WhatsApp's local contacts store and profile picture cache.
 
@@ -76,6 +78,7 @@ Questions go to [Discussions](https://github.com/organetto8/wordwave/discussions
 - Group chats, and senders whose phone number isn't in WhatsApp's local data, just bring WhatsApp to the front.
 - WhatsApp Web in a browser is not supported.
 - WhatsApp's local database is undocumented and can change with any WhatsApp update.
+- Where WhatsApp keeps a chat's mute is looked up in the database itself; if a WhatsApp version keeps it somewhere Wordwave doesn't recognize, muted chats are transcribed. **⋯ ▸ Copy Diagnostic Info** shows what was found.
 
 ## Disclaimer
 

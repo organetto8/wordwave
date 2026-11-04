@@ -26,6 +26,7 @@ enum Diagnostics {
         let updates = !Updater.isAvailable ? "not available in this build"
             : (Updater.checksAutomatically ? "automatic" : "manual only (not in an Applications folder)")
             + (updater.lastCheck.map { ", last check \($0.formatted(.iso8601))" } ?? "")
+        let chatState = await store.chatStateSummary() ?? "not read yet"
         let errors = await recentErrors()
 
         // English labels, whatever language the app shows: the report is read by the maintainer.
@@ -38,6 +39,7 @@ enum Diagnostics {
         Notifications: \(notifications) · launch at login: \(SMAppService.mainApp.status == .enabled ? "on" : "off")
         Updates: \(updates)
         Voice notes: \(notes.count) kept, \(store.unseenCount) unread, \(waiting) waiting for audio, \(failed) failed
+        Muted or archived chats: \(store.skippedCount) voice notes skipped since launch · \(chatState)
         Recent errors: \(errors.isEmpty ? "none" : "\n" + errors.map { "  \($0)" }.joined(separator: "\n"))
         """
         // Any error text in it could name a file in the home folder: the user name stays out of a public issue.

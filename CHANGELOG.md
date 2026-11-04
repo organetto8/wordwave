@@ -5,6 +5,14 @@ and versions follow [Semantic Versioning](https://semver.org/). How releases are
 
 ## [Unreleased]
 
+### Changed
+
+- Voice notes from chats and groups you muted or archived in WhatsApp are skipped: no transcript, no notification,
+  no card. The mute and archive state is checked when Wordwave picks up the voice note, so a note received while a
+  chat was muted stays skipped after you unmute it.
+- **⋯ ▸ Copy Diagnostic Info** shows where Wordwave found WhatsApp's mute and archive state, and how many voice notes
+  it skipped since launch.
+
 ## [0.1.0] - 2026-11-03
 
 ### Added
