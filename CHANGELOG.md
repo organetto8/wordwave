@@ -5,6 +5,8 @@ and versions follow [Semantic Versioning](https://semver.org/). How releases are
 
 ## [Unreleased]
 
+## [0.2.0-beta.1] - 2026-11-04
+
 ### Changed
 
 - Voice notes from chats and groups you muted or archived in WhatsApp are skipped: no transcript, no notification,
@@ -47,6 +49,7 @@ and versions follow [Semantic Versioning](https://semver.org/). How releases are
 - Transcription language that follows the system, or picked from the ⋯ menu.
 - English UI with Italian translation, and launch at login.
 
-[Unreleased]: https://github.com/organetto8/wordwave/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/organetto8/wordwave/compare/v0.2.0-beta.1...HEAD
+[0.2.0-beta.1]: https://github.com/organetto8/wordwave/compare/v0.1.0...v0.2.0-beta.1
 [0.1.0]: https://github.com/organetto8/wordwave/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/organetto8/wordwave/releases/tag/v0.0.1
